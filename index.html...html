@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talent Baas | Pakketten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111110;
+  --white:#ffffff;
+  --bg:#f5f5f3;
+  --g100:#ebebea;
+  --g200:#d8d8d6;
+  --g400:#a0a09e;
+  --g600:#5a5a58;
+  --g800:#2a2a28;
+  --green:#2C6E49;
+  --green-lt:#EAF4EF;
+  --green-dk:#1B4F33;
+  --green-mid:#3A8A5E;
+  --r:16px;
+  --r-sm:10px;
+  --r-xs:8px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--black);line-height:1.65;font-size:15px}
+
+/* NAV */
+nav{position:absolute;top:0;left:0;right:0;z-index:10;padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.01em}
+.nav-cta{font-size:13px;font-weight:500;color:#fff;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:8px 20px;border-radius:100px;text-decoration:none;transition:background 0.15s}
+.nav-cta:hover{background:rgba(255,255,255,0.28)}
+
+/* HERO */
+.hero{position:relative;min-height:580px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.72)}
+.hero-content{position:relative;z-index:2;padding:3.5rem 2.5rem;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center}
+.hero-kicker{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1rem;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,60px);font-weight:800;line-height:1.05;letter-spacing:-0.025em;color:#fff;margin-bottom:1.1rem;margin-left:auto;margin-right:auto}
+.hero h1 em{font-style:italic;color:rgba(255,255,255,0.75)}
+.hero p{font-size:16px;color:rgba(255,255,255,0.55);max-width:500px;line-height:1.75;margin-bottom:2.25rem;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-white{display:inline-block;background:#fff;color:var(--black);font-size:14px;font-weight:600;padding:13px 28px;border-radius:100px;text-decoration:none;transition:opacity 0.15s}
+.btn-white:hover{opacity:0.88}
+.btn-outline-white{font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.25);padding-bottom:1px;transition:color 0.15s}
+.btn-outline-white:hover{color:#fff}
+
+/* PROOF BAR */
+.proof-bar{background:var(--white);border-bottom:1px solid var(--g100);padding:1.5rem 2rem}
+.proof-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:nowrap}
+.proof-item{display:flex;align-items:center;gap:12px}
+.proof-icon{width:42px;height:42px;background:var(--green-lt);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.proof-title{font-size:14px;font-weight:600;color:var(--black);line-height:1.2}
+.proof-desc{font-size:12px;color:var(--g400);margin-top:1px}
+.proof-sep{width:1px;height:40px;background:var(--g200)}
+
+/* SECTIONS */
+.section{max-width:1060px;margin:0 auto;padding:4rem 2.5rem}
+.sec-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:0.6rem;text-align:center}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;letter-spacing:-0.025em;color:var(--black);margin-bottom:0.75rem;line-height:1.15;text-align:center}
+.sec-sub{font-size:15px;color:var(--g600);max-width:580px;line-height:1.75;text-align:center;margin-left:auto;margin-right:auto}
+
+/* PROBLEEM */
+.problem-bg{background:var(--white);border-top:1px solid var(--g100);border-bottom:1px solid var(--g100);text-align:left}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2.5rem}
+@media(max-width:760px){.problem-grid{grid-template-columns:1fr;gap:2rem}}
+.problem-copy p{font-size:15px;color:var(--g600);line-height:1.8;margin-bottom:1.1rem}
+.problem-copy p:last-child{margin-bottom:0}
+.problem-copy strong{color:var(--black);font-weight:600}
+.stat-cards{display:flex;flex-direction:column;gap:12px}
+.stat-card{background:var(--bg);border:1px solid var(--g100);border-radius:var(--r);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem}
+.stat-card-num{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--green);line-height:1;white-space:nowrap;min-width:80px}
+.stat-card-label{font-size:13px;font-weight:600;color:var(--black);line-height:1.35;margin-bottom:2px}
+.stat-card-sub{font-size:13px;color:var(--g400)}
+
+/* PROCESS */
+.process-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;margin-top:2.5rem;background:var(--g200);border:1px solid var(--g200);border-radius:var(--r);overflow:hidden}
+.proc-step{background:var(--white);padding:1.75rem 1.5rem 2rem}
+.proc-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--g100);line-height:1;margin-bottom:1rem}
+.proc-title{font-size:15px;font-weight:600;color:var(--black);margin-bottom:0.5rem;line-height:1.3}
+.proc-desc{font-size:13px;color:var(--g600);line-height:1.6}
+.proc-pill{display:inline-block;margin-top:12px;font-size:12px;font-weight:500;padding:4px 12px;border-radius:100px}
+.proc-pill.all{background:var(--green-lt);color:var(--green-dk)}
+.proc-pill.self{background:var(--g100);color:var(--g600)}
+.proc-pill.us{background:var(--green-lt);color:var(--green-dk)}
+@media(max-width:700px){.process-row{grid-template-columns:1fr 1fr}}
+
+/* GARANTIE */
+.garantie-wrap{background:var(--green);border-radius:var(--r);margin:0 2.5rem;padding:2.25rem 2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.garantie-left{flex:1;min-width:260px}
+.garantie-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.5rem}
+.garantie-title{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,26px);font-weight:700;color:#fff;line-height:1.2}
+.garantie-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;max-width:520px}
+
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:2.5rem}
+@media(max-width:900px){.pkg-grid{grid-template-columns:1fr}}
+
+.pkg{background:var(--white);border:1.5px solid var(--g100);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color 0.2s,box-shadow 0.2s}
+.pkg:hover{border-color:var(--g200)}
+.pkg.hot{border:2px solid var(--green)}
+
+.pkg-top{padding:1.75rem 1.75rem 1.5rem}
+.pkg-tier{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--g400);margin-bottom:0.4rem}
+.hot-badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;background:var(--green-lt);color:var(--green-dk);padding:4px 12px;border-radius:100px;margin-bottom:0.4rem}
+.pkg-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--black);margin-bottom:5px;line-height:1.1}
+.pkg-sub{font-size:14px;color:var(--g400);line-height:1.5;margin-bottom:1.25rem}
+.pkg-price{font-family:'Playfair Display',serif;font-size:46px;font-weight:700;letter-spacing:-0.035em;color:var(--black);line-height:1}
+.pkg-price-note{font-size:14px;color:var(--g400);margin-top:4px}
+.pkg-budget{display:inline-flex;align-items:center;margin-top:10px;font-size:13px;font-weight:500;color:var(--g600);background:var(--g100);padding:5px 12px;border-radius:100px}
+
+.pkg-divider{height:1px;background:var(--g100);margin:0}
+
+.pkg-result{padding:1.25rem 1.75rem;border-bottom:1px solid var(--g100)}
+.result-box{border-radius:var(--r-sm);padding:1.1rem 1.25rem;text-align:center}
+.result-neutral{background:var(--bg)}
+.result-green{background:var(--green-lt)}
+.result-num{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--black);line-height:1.2;margin-bottom:3px}
+.result-green .result-num{color:var(--green-dk)}
+.result-sub{font-size:13px;color:var(--g400)}
+
+.pkg-body{padding:1.5rem 1.75rem;flex:1;display:flex;flex-direction:column;gap:1.25rem}
+
+.opvolging-tag{border-radius:var(--r-sm);padding:0.75rem 1rem;font-size:14px;line-height:1.5}
+.opvolging-self{background:var(--g100);color:var(--g600)}
+.opvolging-us{background:var(--green-lt);color:var(--green-dk)}
+.opvolging-tag strong{font-weight:600}
+
+.feat-label{font-size:12px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--g400);margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:1px solid var(--g100)}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.feat-list li{font-size:14px;color:var(--g800);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.feat-list li::before{content:'✓';font-size:12px;font-weight:700;color:var(--green);flex-shrink:0;margin-top:1px;background:var(--green-lt);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:20px;text-align:center}
+.feat-list li.soft{color:var(--g400)}
+.feat-list li.soft::before{content:'·';font-size:20px;color:var(--g300);background:transparent;margin-top:-4px}
+
+.pkg-footer{padding:1.25rem 1.75rem;border-top:1px solid var(--g100)}
+.btn-pkg{display:block;width:100%;padding:12px;border-radius:100px;text-align:center;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:1.5px solid var(--black);background:transparent;color:var(--black);transition:all 0.15s}
+.btn-pkg:hover{background:var(--black);color:var(--white)}
+.btn-pkg-green{display:block;width:100%;padding:12px;border-radius:100px;text-align:center;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none;background:var(--green);color:#fff;transition:background 0.15s}
+.btn-pkg-green:hover{background:var(--green-dk)}
+
+/* GARANTIE HERHALING */
+.garantie-bar{background:var(--bg);border-top:1px solid var(--g100);border-bottom:1px solid var(--g100);padding:2rem 2.5rem;text-align:center}
+.garantie-bar-inner{max-width:680px;margin:0 auto}
+.garantie-bar-title{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,26px);font-weight:700;color:var(--black);margin-bottom:0.5rem;line-height:1.25}
+.garantie-bar-desc{font-size:14px;color:var(--g600);line-height:1.65}
+
+/* COMPARE */
+.compare-bg{background:var(--white);border-top:1px solid var(--g100);border-bottom:1px solid var(--g100)}
+.compare-inner{max-width:1060px;margin:0 auto;padding:3.5rem 2.5rem;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{text-align:left;padding:0.6rem 1rem;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--g400);border-bottom:1px solid var(--g100)}
+thead th:first-child{padding-left:0}
+tbody tr:last-child td{border-bottom:none}
+tbody td{padding:0.8rem 1rem;vertical-align:middle;border-bottom:1px solid var(--g100);color:var(--g600)}
+tbody td:first-child{font-weight:500;color:var(--black);padding-left:0}
+.y{color:var(--green);font-weight:700;font-size:16px}
+.n{color:var(--g200);font-size:16px}
+
+/* FAQ accordion */
+.faq-outer{max-width:740px;margin:0 auto;padding:3.5rem 2.5rem 4rem}
+.faq-head{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--black);margin-bottom:0.5rem;text-align:center}
+.faq-sub{font-size:14px;color:var(--g600);text-align:center;margin-bottom:2rem}
+.faq-item{border-bottom:1px solid var(--g100)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;background:none;border:none;text-align:left;cursor:pointer;padding:1.15rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:var(--black)}
+.faq-q-icon{width:26px;height:26px;border-radius:50%;background:var(--g100);color:var(--g600);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;flex-shrink:0;transition:transform 0.2s,background 0.2s,color 0.2s}
+.faq-item.open .faq-q-icon{background:var(--green-lt);color:var(--green-dk);transform:rotate(45deg)}
+.faq-a-wrap{max-height:0;overflow:hidden;transition:max-height 0.25s ease}
+.faq-item.open .faq-a-wrap{max-height:300px}
+.faq-a{font-size:14px;color:var(--g600);line-height:1.7;padding:0 0 1.25rem;padding-right:2.25rem}
+
+/* SMALL PRINT NOTES */
+.note-line{font-size:12px;color:var(--g400);line-height:1.55}
+.note-line a{color:var(--green);font-weight:600;text-decoration:none}
+
+/* CTA */
+.cta-block{background:var(--black);padding:5rem 2.5rem;text-align:center}
+.cta-block h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,44px);font-weight:700;color:#fff;margin-bottom:0.75rem;line-height:1.15;text-align:center}
+.cta-block p{font-size:15px;color:rgba(255,255,255,0.45);margin-bottom:2.25rem;max-width:460px;margin-left:auto;margin-right:auto}
+
+footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-top:1px solid var(--g100)}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Talent Baas</span>
+  <a href="#" class="nav-cta">Kennismaking plannen</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80&fit=crop" alt="Restaurant">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">Recruitment marketing voor de horeca</div>
+    <h1>Minder tijd aan werven.<br><em>Meer tijd aan ondernemen.</em></h1>
+    <p>Campagne, opvolging en screening doen wij.<br>Jij hoeft alleen nog te kiezen en te bellen.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-white">Bekijk de pakketten</a>
+      <a href="#" class="btn-outline-white">Gratis kennismaking plannen &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-inner">
+    <div class="proof-item">
+      <div class="proof-icon">&#128683;</div>
+      <div><div class="proof-title">Geen recruiterfee</div><div class="proof-desc">Vaste prijs, geen commissie</div></div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-item">
+      <div class="proof-icon">&#128241;</div>
+      <div><div class="proof-title">Persoonlijk contact</div><div class="proof-desc">Binnen 2 uur, 7 dagen per week</div></div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-item">
+      <div class="proof-icon">&#128101;</div>
+      <div><div class="proof-title">Kandidaten gegarandeerd</div><div class="proof-desc">Of we werken door tot je ze hebt</div></div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-item">
+      <div class="proof-icon">&#127828;</div>
+      <div><div class="proof-title">Horeca-specialist</div><div class="proof-desc">Niet generiek, speciaal voor jouw branche</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEEM -->
+<div class="problem-bg">
+  <div class="section">
+    <div class="sec-eyebrow">Het probleem</div>
+    <div class="sec-title">Personeel vinden in de horeca<br>is harder werken dan de lunch rush</div>
+    <div class="problem-grid">
+      <div class="problem-copy">
+        <p>Je kok belt 's ochtends af. De bediening heeft ontslag genomen. En jij staat zelf achter de bar, voor de derde keer deze week. Je weet: dit kan zo niet langer.</p>
+        <p>Volgens <strong>CBS zijn er op dit moment 27.000 open horecavacatures</strong> in Nederland. Maar die mensen bereik je niet met een vacature op Indeed of een bordje in het raam. Ze scrollen op hun telefoon, ze reageren op WhatsApp, en ze kiezen de werkgever die als eerste contact opneemt.</p>
+        <p>Een recruitmentbureau inschakelen? Dat kost je al snel <strong>15–20% van het jaarsalaris</strong> per hire. En dan mag je hopen dat ze iemand sturen die bij jouw zaak past.</p>
+        <p><strong>Wij bieden de oplossing.</strong> Geen commissie. Geen uitzendconstructie. Gewoon een direct kanaal naar de mensen die al op zoek zijn, via gerichte advertenties op Meta en een opvolging die wérkt.</p>
+      </div>
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-card-num">27.000</div>
+          <div><div class="stat-card-label">Open horecavacatures in Nederland</div><div class="stat-card-sub">Bron: CBS, Q1 2026</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">60%</div>
+          <div><div class="stat-card-label">Horecapersoneel is jonger dan 25 jaar</div><div class="stat-card-sub">Bereik ze waar ze zijn: op hun telefoon</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">15–20%</div>
+          <div><div class="stat-card-label">Gemiddelde recruitercommissie per hire</div><div class="stat-card-sub">Wij rekenen een vaste campagneprijs</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">€20,90</div>
+          <div><div class="stat-card-label">Uurtarief flexplatforms zoals Temper</div><div class="stat-card-sub">Vast personeel is structureel goedkoper</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCES -->
+<section class="section">
+  <div class="sec-eyebrow">Werkwijze</div>
+  <div class="sec-title">Van vacature naar gespreksklare kandidaat</div>
+  <div class="sec-sub">Elk pakket volgt hetzelfde proces. Het pakket bepaalt hoeveel wij voor jou overnemen.</div>
+  <div class="process-row">
+    <div class="proc-step">
+      <div class="proc-num">01</div>
+      <div class="proc-title">Intake & vacatureprofiel</div>
+      <div class="proc-desc">Salaris, doorgroei, diensten en must-haves vastgelegd via het intake form.</div>
+      <span class="proc-pill all">Alle pakketten</span>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">02</div>
+      <div class="proc-title">Campagne live</div>
+      <div class="proc-desc">Gericht op jouw regio en doelgroep. Eerste kandidaten doorgaans binnen 48 uur na livegang.</div>
+      <span class="proc-pill all">Alle pakketten</span>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">03</div>
+      <div class="proc-title">Kandidaten instromen</div>
+      <div class="proc-desc">Leads via intake form: naam, telefoon, e-mail, ervaring en eventuele extra vragen.</div>
+      <span class="proc-pill all">Alle pakketten</span>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">04</div>
+      <div class="proc-title">Opvolging & filtering</div>
+      <div class="proc-desc"><strong>Mise-en-place:</strong> leads komen direct bij jou, aanbevolen binnen 2 uur zelf op te volgen. <strong>À la carte & Chef's table:</strong> wij nemen persoonlijk contact op binnen 2 uur, 7 dagen per week.</div>
+      <span class="proc-pill self">Mise-en-place: jij</span>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">05</div>
+      <div class="proc-title">Aanlevering</div>
+      <div class="proc-desc">Kandidaten worden via WhatsApp aangeleverd. <strong>À la carte & Chef's table:</strong> wij screenen en leveren alleen de gekwalificeerde leads aan.</div>
+      <span class="proc-pill us">À la carte & Chef's table: wij</span>
+    </div>
+  </div>
+  <p class="note-line" style="text-align:center;margin-top:1.5rem">Elke campagne richt zich op 1 specifieke vacature. Voor die vacature kun je meerdere kandidaten aannemen als je meerdere mensen zoekt op dezelfde functie.</p>
+</section>
+
+<!-- GARANTIE BANNER -->
+<div style="max-width:1060px;margin:0 auto;padding:0 2.5rem 3rem">
+  <div class="garantie-wrap">
+    <div class="garantie-left">
+      <div class="garantie-eyebrow">Onze garantie</div>
+      <div class="garantie-title">Het gegarandeerde aantal kandidaten binnen 30 dagen. Of wij werken door totdat je ze hebt.</div>
+    </div>
+    <div class="garantie-desc">Elk pakket loopt 30 dagen. Halen we het gegarandeerde aantal niet? Dan stoppen we niet. We blijven campagne voeren en optimaliseren, zonder extra kosten, totdat jij het volledige aantal kandidaten binnen hebt.</div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section class="section" style="padding-top:0">
+  <div class="sec-eyebrow">Pakketten</div>
+  <div class="sec-title">Kies het niveau dat bij je past</div>
+  <div class="sec-sub">Meer frictie in het proces = betere kandidaten. Kies hoeveel je uitbesteedt.</div>
+
+  <div class="pkg-grid">
+
+    <div class="pkg">
+      <div class="pkg-top">
+        <div class="pkg-tier">Pakket 1</div>
+        <div class="pkg-name">Mise-en-place</div>
+        <div class="pkg-sub">Voorbereid en snel online. Jij doet de opvolging zelf.</div>
+        <div class="pkg-price">€1.299</div>
+        <div class="pkg-price-note">eenmalig · 30 dagen</div>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-result">
+        <div class="result-box result-neutral">
+          <div class="result-num">10 geselecteerde kandidaten</div>
+          <div class="result-sub">van circa 20 binnenkomende sollicitaties</div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div class="opvolging-tag opvolging-self"><strong>Jij volgt op</strong>: kandidaten worden via WhatsApp aangeleverd, aanbevolen om binnen 2 uur op te volgen voor een hoge conversie</div>
+        <div>
+          <div class="feat-label">Wat je krijgt</div>
+          <ul class="feat-list">
+            <li>Stockfoto's per niche (kok, bediening, hotel) of eigen content</li>
+            <li>Standaard intake form, direct live</li>
+            <li>Eerste kandidaat doorgaans binnen 48 uur na livegang</li>
+          </ul>
+        </div>
+      </div>
+        <div style="margin-top:0.5rem;padding-top:1rem;border-top:1px solid var(--g100);padding-left:1.75rem;padding-right:1.75rem;padding-bottom:0.5rem">
+          <div class="feat-label" style="padding-left:0">Meta koppeling</div>
+          <ul class="feat-list">
+            <li>Handleiding inbegrepen</li>
+            <li class="soft">Lukt het niet zelf? Wij regelen het voor €100 eenmalig</li>
+          </ul>
+        </div>
+      <div class="pkg-footer">
+        <a href="#" class="btn-pkg">Informatie aanvragen</a>
+      </div>
+      <div style="padding:0.5rem 1.75rem 1.25rem;text-align:center"><p class="note-line">Op zoek naar meerdere vacatures? <a href="#">Neem contact op voor een speciaal aanbod &rarr;</a></p></div>
+    </div>
+
+    <div class="pkg hot">
+      <div class="pkg-top">
+        <div class="hot-badge">Meest gekozen</div>
+        <div class="pkg-tier" style="margin-top:0.25rem">Pakket 2</div>
+        <div class="pkg-name">À la carte</div>
+        <div class="pkg-sub">Wij doen de opvolging. Jij spreekt alleen de beste mensen.</div>
+        <div class="pkg-price">€2.499</div>
+        <div class="pkg-price-note">eenmalig · 30 dagen</div>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-result">
+        <div class="result-box result-green">
+          <div class="result-num">8 gekwalificeerde kandidaten</div>
+          <div class="result-sub">gefilterd uit minimaal 30 sollicitaties</div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div class="opvolging-tag opvolging-us"><strong>Wij volgen op</strong>: persoonlijk contact binnen 2 uur, 7 dagen per week</div>
+        <div>
+          <div class="feat-label">Wat je krijgt</div>
+          <ul class="feat-list">
+            <li>Eigen content aanbevolen voor meer persoonlijke binding (niet verplicht, wel aan onze kwaliteitseisen)</li>
+            <li>2 extra intake-vragen kies jij zelf</li>
+            <li>Persoonlijk contact met elke kandidaat door ons team</li>
+            <li>Wij screenen en leveren alleen de gekwalificeerde kandidaten aan via WhatsApp</li>
+            <li>Eerste kandidaat doorgaans binnen 48 uur na livegang</li>
+          </ul>
+        </div>
+      </div>
+        <div style="margin-top:0.5rem;padding-top:1rem;border-top:1px solid var(--g100);padding-left:1.75rem;padding-right:1.75rem;padding-bottom:0.5rem">
+          <div class="feat-label" style="padding-left:0">Meta koppeling</div>
+          <ul class="feat-list">
+            <li>Handleiding inbegrepen</li>
+            <li class="soft">Lukt het niet zelf? Wij regelen het voor €100 eenmalig</li>
+          </ul>
+        </div>
+      <div class="pkg-footer">
+        <a href="#" class="btn-pkg-green">Informatie aanvragen</a>
+      </div>
+      <div style="padding:0.5rem 1.75rem 1.25rem;text-align:center"><p class="note-line">Op zoek naar meerdere vacatures? <a href="#">Neem contact op voor een speciaal aanbod &rarr;</a></p></div>
+    </div>
+
+    <div class="pkg">
+      <div class="pkg-top">
+        <div class="pkg-tier">Pakket 3</div>
+        <div class="pkg-name">Chef's table</div>
+        <div class="pkg-sub">Volledig gescreend, inclusief videopresentatie per kandidaat.</div>
+        <div class="pkg-price">€3.950</div>
+        <div class="pkg-price-note">eenmalig · 30 dagen</div>
+      </div>
+      <div class="pkg-divider"></div>
+      <div class="pkg-result">
+        <div class="result-box result-neutral">
+          <div class="result-num">6 gekwalificeerde kandidaten + video</div>
+          <div class="result-sub">gefilterd uit minimaal 50 sollicitaties</div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <div class="opvolging-tag opvolging-us"><strong>Volledige screening door ons</strong>: form, persoonlijk contact, extra vragen en videopresentatie per kandidaat</div>
+        <div>
+          <div class="feat-label">Wat je krijgt</div>
+          <ul class="feat-list">
+            <li>Eigen content sterk aanbevolen, niet verplicht (wel aan onze kwaliteitseisen)</li>
+            <li>Persoonlijke screening door ons team</li>
+            <li>Kandidaat stuurt korte videopresentatie</li>
+            <li>Jij kiest precies wie er op gesprek komt</li>
+            <li>Eerste kandidaat doorgaans binnen 48 uur na livegang</li>
+          </ul>
+        </div>
+      </div>
+        <div style="margin-top:0.5rem;padding-top:1rem;border-top:1px solid var(--g100);padding-left:1.75rem;padding-right:1.75rem;padding-bottom:0.5rem">
+          <div class="feat-label" style="padding-left:0">Meta koppeling</div>
+          <ul class="feat-list">
+            <li>Handleiding inbegrepen</li>
+            <li class="soft">Lukt het niet zelf? Wij regelen het voor €100 eenmalig</li>
+          </ul>
+        </div>
+      <div class="pkg-footer">
+        <a href="#" class="btn-pkg">Informatie aanvragen</a>
+      </div>
+      <div style="padding:0.5rem 1.75rem 1.25rem;text-align:center"><p class="note-line">Op zoek naar meerdere vacatures? <a href="#">Neem contact op voor een speciaal aanbod &rarr;</a></p></div>
+    </div>
+
+  </div>
+  <p class="note-line" style="text-align:center;margin-top:2rem;max-width:640px;margin-left:auto;margin-right:auto">De eerste sollicitaties worden doorgaans binnen 48 uur na livegang van de campagne verwacht. Dit zijn nog geen gescreende of gekwalificeerde kandidaten; die volgen na onze opvolging. De 48 uur start zodra de campagne daadwerkelijk live staat.</p>
+</section>
+
+<!-- GARANTIE HERHALING -->
+<div class="garantie-bar">
+  <div class="garantie-bar-inner">
+    <div class="garantie-bar-title">Elk pakket loopt 30 dagen. Halen we de garantie niet? Wij werken door, gratis.</div>
+    <div class="garantie-bar-desc" style="margin-top:0.5rem">Geen extra kosten, geen excuses. Jij krijgt altijd het aantal kandidaten waar je voor betaald hebt.</div>
+  </div>
+</div>
+
+<!-- VERGELIJKING -->
+<div class="compare-bg">
+  <div class="compare-inner">
+    <div class="sec-eyebrow" style="margin-bottom:1.5rem">Vergelijking</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30%">Onderdeel</th>
+          <th>Mise-en-place</th>
+          <th>À la carte</th>
+          <th>Chef's table</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Prijs</td><td>€1.299</td><td>€2.499</td><td>€3.950</td></tr>
+        <tr><td>Gegarandeerd aantal kandidaten</td><td>10 geselecteerd</td><td>8 gekwalificeerd</td><td>6 gekwalificeerd + video</td></tr>
+        <tr><td>Verwacht aantal sollicitaties</td><td>circa 20</td><td>minimaal 30</td><td>minimaal 50</td></tr>
+        <tr><td>Extra vragen intake</td><td><span class="n">—</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Persoonlijk contact binnen 2 uur, 7 dagen per week</td><td>Aanbevolen, doe je zelf</td><td>Door ons team</td><td>Door ons team</td></tr>
+        <tr><td>Screening door ons team</td><td><span class="n">—</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Video per kandidaat</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Aanlevering</td><td>Direct via WhatsApp</td><td>Gefilterd via WhatsApp</td><td>Gefilterd via WhatsApp</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-outer">
+  <div class="faq-head">Veelgestelde vragen</div>
+  <div class="faq-sub">Staat je vraag er niet bij? Stel hem gerust tijdens de kennismaking.</div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>Hoe werkt de garantie precies?</span>
+      <span class="faq-q-icon">+</span>
+    </button>
+    <div class="faq-a-wrap"><div class="faq-a">Elk pakket loopt 30 dagen. Leveren we aan het einde van die periode niet het gegarandeerde aantal kandidaten? Dan stoppen we niet. We optimaliseren en blijven doorwerken, zonder extra kosten, totdat jij het volledige aantal hebt.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>Wat is het verschil tussen een sollicitatie en een gekwalificeerde kandidaat?</span>
+      <span class="faq-q-icon">+</span>
+    </button>
+    <div class="faq-a-wrap"><div class="faq-a">Een sollicitatie is een ruwe lead die binnenkomt via de campagne, nog niet gecontroleerd. Een gescreende of gekwalificeerde kandidaat is persoonlijk benaderd door ons team, heeft interesse bevestigd, voldoet aan de must-haves en is bereid op gesprek te komen. Bij À la carte en Chef's table leveren wij alleen dat laatste type aan.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>Wanneer kan ik de eerste kandidaten verwachten?</span>
+      <span class="faq-q-icon">+</span>
+    </button>
+    <div class="faq-a-wrap"><div class="faq-a">Bij alle pakketten verwachten we de eerste sollicitaties doorgaans binnen 48 uur na livegang van de campagne. Let op: dit zijn nog ruwe sollicitaties, geen gescreende of gekwalificeerde kandidaten. Die volgen daarna, via onze opvolging.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>Moet ik de Meta koppeling zelf instellen?</span>
+      <span class="faq-q-icon">+</span>
+    </button>
+    <div class="faq-a-wrap"><div class="faq-a">We sturen je een stap-voor-stap handleiding. Lukt het niet zelf? Dan regelen wij het voor een eenmalige fee van €100.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>Moet ik eigen content aanleveren?</span>
+      <span class="faq-q-icon">+</span>
+    </button>
+    <div class="faq-a-wrap"><div class="faq-a">Nee, dat is bij geen pakket verplicht. Bij Mise-en-place gebruiken we standaard stockfoto's per niche. Bij À la carte en Chef's table is eigen content sterk aanbevolen. Het verhoogt de persoonlijke binding, maar je kunt ook met onze beeldmappen werken. Lever je zelf materiaal aan, dan moet dit wel aan onze kwaliteitseisen voldoen.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>Kan ik voor dezelfde vacature meerdere mensen aannemen?</span>
+      <span class="faq-q-icon">+</span>
+    </button>
+    <div class="faq-a-wrap"><div class="faq-a">Ja. Elke campagne draait op 1 vacaturetype, maar als je voor die functie meerdere mensen zoekt, kun je uit de aangeleverde kandidaten ook meerdere mensen aannemen.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>Kan ik eigen vragen toevoegen aan het intake form?</span>
+      <span class="faq-q-icon">+</span>
+    </button>
+    <div class="faq-a-wrap"><div class="faq-a">Ja, dat kan bij À la carte en Chef's table. Bij Mise-en-place werken we met een vast formulier zodat de campagne direct live kan.</div></div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.parentElement;
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(el){ el.classList.remove('open'); });
+    if(!wasOpen){ item.classList.add('open'); }
+  });
+});
+</script>
+
+<!-- CTA -->
+<div class="cta-block">
+  <h2>Klaar om te stoppen<br>met vacatures plaatsen?</h2>
+  <p>Plan een gratis kennismaking en wij laten zien wat er mogelijk is voor jouw zaak.</p>
+  <a href="#" class="btn-white" style="font-size:15px;padding:14px 36px">Plan een gratis kennismaking</a>
+</div>
+
+<footer>Talent Baas · Vertrouwelijk werkdocument · Versie 16 juni 2026 · Prijzen zijn hypothesen tot validatie via betaalde pilots</footer>
+
+</body>
+</html>
