@@ -28,6 +28,7 @@
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--black);line-height:1.65;font-size:15px}
 
 /* NAV */
+.hero-logo{width:52px;height:52px;border-radius:13px;margin-bottom:1.25rem;display:inline-block}
 nav{position:absolute;top:0;left:0;right:0;z-index:10;padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between}
 .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.01em}
 .nav-cta{font-size:13px;font-weight:500;color:#fff;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);padding:8px 20px;border-radius:100px;text-decoration:none;transition:background 0.15s}
@@ -188,6 +189,7 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
 @media(max-width:640px){
   nav{padding:1.1rem 1.25rem}
   .nav-name{font-size:15px}
+  .hero-logo{width:42px;height:42px;border-radius:10px;margin-bottom:1rem}
   .nav-cta{font-size:12px;padding:7px 14px}
 
   .hero{min-height:520px}
@@ -257,7 +259,7 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
 
 <nav>
   <span class="nav-name">Talent Baas</span>
-  <a href="tel:+31614154747" class="nav-cta">Kennismaking plannen</a>
+  <a href="https://calendly.com/talentbaas/30min" class="nav-cta">Kennismaking plannen</a>
 </nav>
 
 <!-- HERO -->
@@ -265,12 +267,13 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
   <img class="hero-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80&fit=crop" alt="Restaurant">
   <div class="hero-overlay"></div>
   <div class="hero-content">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAXr0lEQVR42u2caXRd1ZXnf/uce997eppnyTLybMABE8KcAGXISEFBhqYAU9OHVKozOimSFdKVajqrkpXVKzOkSJFOdTVVwTghVWmaUAEqDAFiAjgYDAaMJ3mQNVrz0xvuPWf3hyeZGJtIsiRbTunvpQ/y1b33vf3fZ+99/mefA/OYxzzmMY95zGMe85jHPOYxj3n8Z4KcyJcv/Ma1Jc6m6p11ldaSOF7vjSIIAjvqNNff09Pdy5d+Gf+nIaD+O3+2zITx+3C8C3gLaCNIGrDH7UMoqBChDIuwX0U2GXggyBce2X/TPX2/lwQ0fuv6C0iYdShXShhUoIp6Ba+vW+V4+56AiIA14BXv/R5R/WGUj77Xd9M97b8XBDR//YY6lzL/Q4QPS2CTGjlQZU7CGsQaNHLt6v3fdX/y7u8js+sZs0pA07dvPM8H/G+TsGdoYQ4b/mhEGMHHfkMuX/j40CyGpVkjoPk7N77HB6wXa2o1ctMP26p4FFVFj+qUggBGBBEZ+22axkkGaCHeGKu/9uAnNxw4aQio//YNF5vQ3IdIFc4f83O8epx6DIaSMEFlspSqZBkVyTTpIEFgLAoUXEwmyjGYzzCQG2GoMErexQhgxRTj/LEaKBGgUfxUNh9dNRsjYcYJWPD3150S++AJE8gijY/N+LF3CEJNSTnLqppZXt1Mc1ktlclSUjbEihnLoeMBujgyYu/Jxnn6csPsG+phe/8B2ga7GImyGDHF+45xJPh89KPux+MbueceN3cJuOUW01j72k8kGX5AC/ExGd6KYUlVE+c2rWBFdQuVyTQgZOM8g/kM/bkRBvMZRqM8kY8RhIQNKUukqEqWUp0qpyKZJmEDYu/oGR1ia28bz3XtoCszgBHBHAMRElp83v1V97r135+zBNTfuvaDNjD/qlMMO14Vr54llU38QeuZrKxuIRmEDBeytA12sa1vP3uHuunPjZCLI7z6I/KAIATGkg6T1JdUsrSqiZU1C2kpqyUZhAzlR9nctZMn9m+lLzdEYIKpfXlrIPadLpa39f71XR1zjoBVP7420dsZbjShPUdjNyWvLw1TXL7orZzfvJJ0kKQ3O8RzXTt4vnsXPaMDxTwgBoNMGM/HyVSUpA05paKe85pWsqpuEaVhkp7RQR7Z8wKbOrcDOqXRIIkAzcdf6frU+i/OOQLqb7vhvdbaB6bi/ZGPWVzRyDUrLqK1ooFMlOOZjm38qv1l+nPD04rbY5kB54ufp7WigctaV7OqrhWAzV07uX/nMwwXsgTGTnoUqHP781ZWD35sff+MVLwzRUDZFWf+rYTBWydb9UTecXbDMq47/Q9oSFeya6CTH297nGc6thG5mMBYjMg0vasY740Y+nMjvNTTRn9+hIXldSyvWsDiqkb2DHUzXBid3EhQxQRBRRixaeSBF1+eMwTUf/faMlH7PxGqJjPZirzjwgWn8oGV7yAVhDx94FXu2fYkvdkhQhNMq2x8MxgxIMLeoR52DnTQVFbD4somllc3s2eom8F8ZlIkSGDxzmcyP3/x3hn5XDMjL4bLBU7B+0mFnXObVnD18guxYviPts38dPtG8i6afCiYRrxN2ICOkT7ufOkXbO1tozFdxdpVa2gsrSb2k8hd3iNwDrfcEswZAmwoyyW0diLVJPKOldUtXL38AgJj+Y+25/hF22ZEZNrhZioIjCUT5djwyi/Z2ruHxtJq/vi0SyhPlOD1dzuRekVhYX39y3VzhgCvvgXzuw3o1FOTKuP9K95OOkzx5P6tPLp3C9aYGZENpuw0Ysi5iHu2PcnugU4WVTRy5bLzYSL1TUGEMusSNXMnBGHKJpMQ37f0XJrKqnnl4D4e3P2bYll5AteErBhGCln+7bVf0Z8b5uzGZZzbtILYx7+bAQgl1JI5RMDEoefM+kWcVb+EvuwwP9vxNJFzs5JsjyUctQ8f5KG25wC4fNFZ1KQqJg5FzstJQYCqkg6SrGldjTWGx/a9SOdoP9YY5gpCG/Bc5w5e7t1LfUkllyx8C/44SeezboVYHasblrCwvJ49gz1s6nyN0FjmEmQsRz26dwuZOM/ZjctoLK3CqT+5CSjKAQnOa1qBqvLUgVfIxYUpxX1VHZMXiornb0sOsXeH/eg0vDYwlr1D3bzcu4eKZJq3NS6fMAzNSAiczYc771lW00xLeR2dmX5eObiXQOzUCAzCQ/fE6ii4mIKLuax1NZ8852oUHaNT+PLGu9ncvZPQHPvXerbjNVbXL+GMusU8vu+losPMYq4KZncEwKraRSRswMu9e8lEuUkbR1UJbcCdV97E0qomBOEXbc/z2Ud/gFNPc1kNa1rPPOye722+f1qx2xrL3uEe2kcO0lpRz+LKRrb27pmS08yZEKQo6SDB0qpG8nHEq337phR6YnUsrWzi0oVnsKiigdaKeppKqw7J0EcLD9NNnAIUXMS2vv0ExrKiesGs92rM2gjwqtSWVFBTUsHB7BBdmYFJVz6Rd4wUcpzbvOKwewrekYsLh3LCUYnzbuyaHtKAEjaYNPmCsHugk4KLOaWinqQNcepnbbYyiwR4mkqrSdmQjkw/2Tg/Ka3HqefM+sU0lVbx/hUXHXZtQVkN16y4kNh7akrKj7g37yOWVy/gymXnsbC8joFchqc7trGx/RWc95NyACOGnuwgQ/lRalLlVCRK6MsNI2JOLgIAGtJViAhdmf436WQ4EgUX85Gz3sfaVWuOuHZ+80o2XH0zAP+y9ZEjCF97+hrevfhsat9Azv07n+XTD9/BQD4z4fqCEWE0ytOfG2ZxZRPVqTJ6s0MTKS1zjwBBqEqVoqr050aYydVPfRPPvf70S4/691cuO4/RKM9HH/rupD5G7B0D+QyBsVQmS2c1D8xaErZiSAdJnHpGotykzS8itA8fZEd/B9EbNJmRQpZtfe1s7dlDppA76v292SF2D3Yd8f8fWHkRZzUsJXLxJAhWRgpZRCAdppjNtslZIUDHDBnaAK86qS89jpQN+eazP+XKn9zCgeHD23B+ue8lLl3/OS7bcDMv9rQdce/G9ldYs/7zvOOHN/HljRsOM1tgLO9YuIpYJ7denXcxICTsrEbp2Z0Jj1cexcnS1ErQXBwd4XdOlVwcjV070it/sOVB2oa6ybuIu15+lP7c8GHXl1c1TzoUjk/wZlutNbNj+OIXGG+wKnaw6ZSIO9oCzXjroZGja/a9o0OExmLFUPAxo1H+sOvlifSkDRqOfebfLU3P4RHgVcnGBawxlATJGU++8qZGG7uuHLHGWzSmTsoFirEfRuPCyUvAUGEUI0JVsnRKI+DNvdIQ+Zjo0GTrcFzUcjr5uMBwIcuiysYjytGOSZbDVgyVyTTOe4bzo7MahmYxwygHs0MA1Kcrj6kMfeMdqxuWcHnrW9kz1EU6PHJUfezsKwmtpTszyI1vWUPShoddf65zx4TGVJRUEFKTKifvIvrzIyenGCcInZl+IhfTXFZDwgT4Q8rlxIbPu4hMdHip2VJWy70f+u8M50f5t9c2HnFfOkyy7pxrjvrMtsEunty/dcKqxqtSnSyjMlnKYD5TbFeZxREwayHIiKF7dIDB/CgN6UpqSsonra+LCKNxnvt3PXtUcorNt4d796N7t/DrA68e9XnZOM8XH/9nDo51200kobRWNFASJDkw0kc2OknlaCPCcCHLvuEe3tqwjGVVzXRm+ibdapg0Ad/ZdC+FOOKaFRfSVFaDFUM2LtA22MUL3btYWF57iJS7X36MR/du4eYL/5h3LjqLymQp2bjAC927uH3z/Ty5f+sRIenNHGdlTQug7Bw4gMdjZ7Fan9VZhlfPKwf3cVbDUs6oW8QzHdsmH8JEiFzM1575V25//n6qkqUYMeTjiMHCKM47/nHLg4cRrsBnH/0B1akySsMUeRfRlx3Gq07K+E49DelKllQ2MpQfZWd/x7R6U084AVYs2/vbOZgdYlFlI60VDewa6Jh0B5yIkAoSxM7RPTo43pODiBz2DP2thG2tYaSQYzifBWFK3XZePWc1LKU8mWZTx3YO5oZnnYBZfboRYTCf4YXu3aSCkIsWnHZM8VREsGKwptho+8ZKRo7yXmum1lnt1VOdLONtjcvJxxGbOrdPa415ThAwXlM/27GN/twIq+oWsaJ6AZF3zDU49by9ZRV1JZVs7z/ArsGOWe9VPS4EjC9wPH3gVZI24N2Lz6YkSBwX75q09uQdiyoauWDBqeTiPL/ct+XQvoKTnoDxXPCr9lfYN9zD4somLmtdTax+Thjfq5IKEly57HxKwxKe7XyNXQOdx8X7Z4wARfMT5YLRKMe/73yWXFzg4oVncHbDUgouPqHG17F/Vyw9l2VVTewb7uHhPS9MMFcQAOcdhbkzAlS7J9qYERjLa/3tPLzneUJjuXrFRaysaTlhJBSVTs/lrWdx4YLTGC5kuXf7U4wUspNoldesJRyYOwQYdk1mT3BgLI/ve4lfH3iV8kQJ1512KStrFhx3ElSLe8cua13NuxafTewd/2/Hr9k9OInQYwSQbvr7e+cMAcbY19Rr70Qr1+Pl4892Ps2mzu1UpcpYu+pyzm5cRjTN1sKpVDvGGK5adj7vW3IuXpX7djzNc12T66gTI6C6teNLPxudkfw4Ew/J3L8lU3bFme+U0C5//fiZN6/pnSrb+vaTDpIsrWri9NpWkjZg73APeRfPyuRHUSLnaEhX8l9OvYTzmleSiwvcu+PXPN2xbdINwxJYiN3fZx546Zk5QwBA6R+ekZLAXI2b2ItFBK/Kq337KfiYJZWNrKhpYUllI4P5DAdzQ3j1iExfh1RVYnUkTMiFC07jQ6dezOKKBrpHB7hn2xNs6dk9+V5SEXB+xKu/afSBrXNrm2rFO8/cq+ifEJjyyeyUFCkemLRroJP9w700llazuLKBM+sX01hazcjY4RvjG+eKJ6BM3tu9V5w6UkGSM+uXcM2Ki7hwwWkkbMgL3bv48bYn2DfcO6VGXkkEaOz+b8+6DTN2XMGM6qwNt93wNyYRfnmq50SM75Z/e8sqLlxwKlWpMnJjqudLvXvY2d9Bf26EwtiSohzqh5bfKic5dK0kSNBQWsWpNQt5S90imktrxtpdenls34ts6d6NolMLdcXKqCDCxZ0fv+vZOUlA9R3XVoaF8NcmsKdN5biC8QmRU0dDuorzmlayumEJtSUVCDAS5ejODNCR6aNndJCBfIZslC8u+osQmoDSMEVNSRmN6Wqay6qpLakkFYRELqZ95CCbOrbzQs8uMlGxRXKqX1ySAS4b/UPPurs/OpM2m/GVhoZb175LrLkfNDFRQn4zUcypUplMs7K6hdNrWzmloo6KRCmhta//jffFdWEp6k3FHfGCKuRdgb7sMLsHu9jau4e2wS5yrkAg9tjEwNDiI/eqzeslHZ+9u3dOE1Ak4fqbTBh+XZ0/5mPKiiPCY0SoSKRpSFfRVFpNXbqCikSa1PiBTapEYy0oA/kMPaODdGb66BkdIhsXJ+jT2Qor1qCqfTh/Rden7n5mpm01a2ttjbeu/bKE9m/Ue45lJLyRjNePqCn2BdlDsvTrW5g8/pAAOJmTVSYuOQ3qddDH7vqedRsemBWdbLYIyPz8xUdK3nNGRoxZI1bsdEiQsUOW7NjPuFQwvgtgfKf9b1+ftvETAd75Nh/763vXbXh41oTK2Zx1jj7w4sb0e898BuFtJgwaUJ3RPleZhSEsQfHERI3dTyVya3s+veGF2bTRcdkpXfnVtdXJUv2EWPmIWLsQQN30Q9OMWcAYxArqFPW6SXBf6/rEhns4DqfJHtet6o23/0mDOv9+Efmgqp4jRurEmvEa+wRIoopGzinsE+QJlB916cFfsO6B/PHk/4Sg/rt/3mSJViosRWlUJYWIHgejC6qKlWHxHDAi2/OeHX3r7hpiHvOYxzzmMY95zGMev5dl6DmE9YOntKIqPcmKvbz88ozu/6n75o3NmqIiMeoPzrRqOVuY9uJrzZIF76pbsfCrlStal044I+5pXOjVP6vCc7VudMl03121uOnSmmULv1q7eMGpACbQb4bJ8IU4ZN3JMgKmTYAY81FjzM1hHLVMPAdKGJRSoFS9Tvvdxpi/DEJ7s6KLxia2KTEmKUaCk4WA6XxQU7Ok+WOIvt17j7f2L6uXtpT372p/sGZJywcxXCZCDdCO5/6Du9ofGQt6HjjURFS9bMFFVuRDipyiaI+q+1n/zs4HKltbq20QfxKRNmL3rIT2wyC1Lo4fHmjrXF+7tOXDIrLGO4dY8xdVrY0JCU2+eHisr2j4zvWflkRwno/ddpOzt3d97ofdzXdclY4Lldca0YtVqQD2EOtPuz9z91MA9d+4drmkEteJsgrUq8hmIndX96c3dAFS9+0brjCB+UPUN2PMAY3j+3rW/eihE5MDzjknrBnofNEYcyqqxU4H529T8bkgCD/nnUdVO4wxzarqUL/W53O/kmTJDhEJrDEro8i9zQRylyBJr75TkCZE0Nh93Bvus2L2quoIkDPG1I3J/8TeXW8wnzFGLtCxd7tC9IPwC+8uEbjRR64gRhISWCQwuJH8IzZV/keuMPJ/bEXJtX5o1IP0SCJoVOdyWoivMoHd4ZXNtixV7UZyfaimTDqZ9qP5zTZZfrHLD/+pSQb/4AtxTlT2EpiVkgzwmcJHuj+1/n8d/xD0m9/E3nGdqnYjgnPuL6xGXwGj3vk7fezeWxYHS733dxtrrBdzlUhpUcJXvFdXIUb+VsQknff/LRiOl3vVPxcAIzf5mDpVRowxZarcGUX+rer8M4hgkTVxHF2vXvePEf9fA+O/SOxSWAOwJ/buPM3H17tsISeBuTzOZS4Guny28M/e+0vImWU+Hz1qUokUxr7bOFtjguAhP5L9VuxliVe92GcLWQns2RKNrASuksACcp835kof+T8T5XtiiE5UDtAwU7kT1QjAqN3Vvbu7C8l+xavbJNZ+ZCRwjwGXqVdQRDUjACrqnJpG0FO0eBbzn8blweMCN4+pcQuNlWZB1XsfG7hjoK39BWCTCKgSDu7palOKDbLqze7u3d1dqirFJUTuO/jJDZu6PrX+RyhtkgwQo3W5QnSLd26rGHuzpvyjiJylsUeU1IF1/7LZFfK3YkQCq/daY/5JIMQrqmJQfVhjj0kG14q6543lo3E2350z3HuicgCFdCawY2Kyk1gBi0/fawOzxju/BfReEblYRJoEdWLMm6wAyIMGOrxBvfMNiMTgBhVjiiNGZTzlj6dzil2aRULt2PXxzCJvWIj2inhfm0qEPzfJxPl+tPC0iP67Kn8kRmq86GjtbdetMTZ8CK9GVDfg9UkVWSGGwFsbdHcuv7Wpbnu7CleKmAuAi4J08iIzml85CGtPWBXE62r+KbWLFywX0UvUewX9tEr266pqFFDVKjWJiqJ9sN75TmCPGAP4/T079n/DRfHTxsh1Ah9UxRQPHAB98+3F44Qsam5uTosVVecR+GDDd268sOG2tWsRFms+dogpEeF8ny3klPivsPZ2RJLFflSpsthrTSoM1fsnUr3hhxXZJEaSKPgoXthYs/2HmrCf8E7WR44LvNdvqiqqrDhhI2Cwbk+mZqClXYw0BwTrvfh/Etguxpymzv/MaEmsSIQqNjDXRFGcs4iImIQGMqLO/516vcsY+/XaZS2fF5F6MQYfu9vVhe1ifRkIXp0BUCQhRlBMqujXutcYsyjA3JFLuFWJwBabZyE0CXkKaxFrcKP5n3vPT63wBZNKVGmWJ9U5AcnjPRKYjxL713wuwoR2TbYuakc1pUrOpMJSyRa+D/KQiFxqrF5qPLvU0ILzqPCj6dhwemvCHfhUTdVGvBZQeUVU73HID1DNi7AbYYNz7jNipEuRvaj/uRGe8fBLF/iNg9vbnyupqnxQRXsFDiI84WP9Wt/u9m+la2udaDyA8nBUkCcKw8PZ0urySNFXnfcP5waGX0tXlm9UoYDIq+L1Abl06RYtuJdcFN0snp0iptPH7ic2p1/s/uu795e8Z/VTImSBnaj8oxB9HicjYs1OlK/g9UlE+kV43gtfwJs7RXCiflMhWf45KWQfE7EHVRhE5HFi/+XuT6y/ky/NSyrzmMc85jGPecxjHvM4qfD/AQXdUhUzvWIPAAAAAElFTkSuQmCC" alt="Talent Baas logo" class="hero-logo">
     <div class="hero-kicker">Recruitment marketing voor de horeca</div>
     <h1>Minder tijd aan werven.<br><em>Meer tijd aan ondernemen.</em></h1>
     <p>Campagne, opvolging en screening doen wij.<br>Jij hoeft alleen nog te kiezen en te bellen.</p>
     <div class="hero-btns">
       <a href="tel:+31614154747" class="btn-white">Bekijk de pakketten</a>
-      <a href="tel:+31614154747" class="btn-outline-white">Gratis kennismaking plannen &rarr;</a>
+      <a href="https://calendly.com/talentbaas/30min" class="btn-outline-white">Gratis kennismaking plannen &rarr;</a>
     </div>
   </div>
 </div>
@@ -393,8 +396,8 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
         <div class="pkg-tier">Pakket 1</div>
         <div class="pkg-name">Mise-en-place</div>
         <div class="pkg-sub">Voor restaurants die snel willen starten met een gerichte wervingscampagne en zelf de opvolging willen doen.</div>
-        <div class="pkg-price">€1.299</div>
-        <div class="pkg-price-note">eenmalig · 30 dagen</div>
+        <div class="pkg-price">€995</div>
+        <div class="pkg-price-note">eenmalig · 30 dagen · excl. ad budget *</div>
       </div>
       <div class="pkg-divider"></div>
       <div class="pkg-result">
@@ -431,12 +434,14 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
 
     <div class="pkg hot">
       <div class="pkg-top">
-        <div class="hot-badge">Meest gekozen</div>
-        <div class="pkg-tier" style="margin-top:0.25rem">Pakket 2</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="pkg-tier">Pakket 2</div>
+          <div class="hot-badge" style="margin-bottom:0">Meest gekozen</div>
+        </div>
         <div class="pkg-name">À la carte</div>
         <div class="pkg-sub">Voor restaurants die meer instroom willen en de opvolging willen uitbesteden.</div>
-        <div class="pkg-price">€2.499</div>
-        <div class="pkg-price-note">eenmalig · 30 dagen</div>
+        <div class="pkg-price">€2.195</div>
+        <div class="pkg-price-note">eenmalig · 30 dagen · excl. ad budget *</div>
       </div>
       <div class="pkg-divider"></div>
       <div class="pkg-result">
@@ -451,7 +456,7 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
           <div class="feat-label">Wat je krijgt</div>
           <ul class="feat-list">
             <li>Stockfoto's per niche of eigen content van het restaurant</li>
-            <li>Regionaal getargete campagne via Meta, hoger advertentiebudget voor meer instroom</li>
+            <li>Regionaal getargete campagne via Meta</li>
             <li>Sollicitaties doorgaans binnen 48 uur na livegang</li>
             <li>Standaard intakeformulier</li>
             <li>Extra filtering op basis van 2 aanvullende vragen die je zelf bepaalt</li>
@@ -478,8 +483,8 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
         <div class="pkg-tier">Pakket 3</div>
         <div class="pkg-name">Chef's table</div>
         <div class="pkg-sub">Voor restaurants die maximale kwaliteit willen in de aanlevering, inclusief videopresentatie.</div>
-        <div class="pkg-price">€3.950</div>
-        <div class="pkg-price-note">eenmalig · 30 dagen</div>
+        <div class="pkg-price">€4.395</div>
+        <div class="pkg-price-note">eenmalig · 30 dagen · excl. ad budget *</div>
       </div>
       <div class="pkg-divider"></div>
       <div class="pkg-result">
@@ -494,7 +499,7 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
           <div class="feat-label">Wat je krijgt</div>
           <ul class="feat-list">
             <li>Stockfoto's per niche of eigen content van het restaurant</li>
-            <li>Regionaal getargete campagne via Meta, nóg hoger advertentiebudget voor meer instroom en extra filtering op kwaliteit</li>
+            <li>Regionaal getargete campagne via Meta</li>
             <li>Sollicitaties doorgaans binnen 48 uur na livegang</li>
             <li>Standaard intakeformulier</li>
             <li>Extra filtering op basis van 2 aanvullende vragen die je zelf bepaalt</li>
@@ -519,6 +524,7 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
 
   </div>
   <p class="note-line" style="text-align:center;margin-top:2rem;max-width:640px;margin-left:auto;margin-right:auto">De eerste sollicitaties worden doorgaans binnen 48 uur na livegang van de campagne verwacht. Dit zijn nog geen gescreende of gekwalificeerde kandidaten; die volgen na onze opvolging. De 48 uur start zodra de campagne daadwerkelijk live staat.</p>
+  <p class="note-line" style="text-align:center;margin-top:0.75rem;max-width:640px;margin-left:auto;margin-right:auto">* Ad budget is variabel en exclusief de pakketprijs. Gemiddeld komt dit uit op €200 tot €600, afhankelijk van het gekozen pakket en de duur van de campagne.</p>
 </section>
 
 <!-- GARANTIE HERHALING -->
@@ -543,7 +549,7 @@ footer{text-align:center;padding:1.5rem;font-size:12px;color:var(--g400);border-
         </tr>
       </thead>
       <tbody>
-        <tr><td>Prijs</td><td>€1.299</td><td>€2.499</td><td>€3.950</td></tr>
+        <tr><td>Prijs</td><td>€995</td><td>€2.195</td><td>€4.395</td></tr>
         <tr><td>Gegarandeerd aantal kandidaten</td><td>10 geselecteerd</td><td>8 gekwalificeerd</td><td>6 gekwalificeerd + video</td></tr>
         <tr><td>Verwacht aantal sollicitaties</td><td>circa 20</td><td>minimaal 30</td><td>minimaal 50</td></tr>
         <tr><td>Extra vragen intake</td><td><span class="n">—</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
@@ -634,9 +640,15 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
   <h2>Klaar om te stoppen<br>met vacatures plaatsen?</h2>
   <p>Plan een gratis kennismaking en wij laten zien wat er mogelijk is voor jouw zaak.</p>
   <a href="tel:+31614154747" class="btn-white" style="font-size:15px;padding:14px 36px">Plan een gratis kennismaking</a>
+  <div style="margin-top:1rem">
+    <a href="https://calendly.com/talentbaas/30min" class="btn-outline-white">Of plan direct online een afspraak &rarr;</a>
+  </div>
 </div>
 
-<footer>Talent Baas · Vertrouwelijk werkdocument · Versie 16 juni 2026 · Prijzen zijn hypothesen tot validatie via betaalde pilots</footer>
+<footer>
+  <img src="data:image/png;base64,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" alt="Talent Baas" style="width:20px;height:20px;border-radius:5px;vertical-align:middle;margin-right:8px;opacity:0.85">
+  Talent Baas &middot; Vertrouwelijk werkdocument &middot; Versie 16 juni 2026 &middot; Prijzen zijn hypothesen tot validatie via betaalde pilots
+</footer>
 
 </body>
 </html>
